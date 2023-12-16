@@ -1,8 +1,9 @@
 package dev.onurdeniz.householdbackend.control;
 
-import dev.onurdeniz.householdbackend.boundary.ItemDto;
 import dev.onurdeniz.householdbackend.items.entity.ItemEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ItemEntityMapper {
     ItemEntity map(Item item) {
         if (item == null) {

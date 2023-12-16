@@ -25,12 +25,9 @@ public class ItemEntity {
     @Size(min=2)
     private String vendor;
     @NotNull
-    @Size(min=2)
     private Double price;
     @NotNull
-    @Size(min=2)
     private LocalDate dateOfPurchase;
-    @Size(min=2)
     private Double discount;
 
 }
