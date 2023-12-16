@@ -1,4 +1,4 @@
-package dev.onurdeniz.householdbackend.control;
+package dev.onurdeniz.householdbackend.items.control;
 
 import dev.onurdeniz.householdbackend.items.entity.ItemEntity;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package dev.onurdeniz.householdbackend.control;
+package dev.onurdeniz.householdbackend.items.control;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.ContextRefreshedEvent;

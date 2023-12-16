@@ -1,6 +1,6 @@
-package dev.onurdeniz.householdbackend.boundary;
+package dev.onurdeniz.householdbackend.items.boundary;
 
-import dev.onurdeniz.householdbackend.control.Item;
+import dev.onurdeniz.householdbackend.items.control.Item;
 import org.springframework.stereotype.Component;
 
 @Component

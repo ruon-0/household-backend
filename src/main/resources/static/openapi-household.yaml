@@ -1,0 +1,46 @@
+#openapi: 3.0.3
+#info:
+#  title: Household
+#  description: Managing household including groceries and finances
+#  version: 1.0.0
+#servers:
+#  - url: 'http://localhost:8080/api/v1'
+#    description: Generated server url
+#tags:
+#  - name: items
+#    description: All operations to handle grocery items
+#
+#paths:
+#  /items:
+#    get:
+#      tags:
+#        - items
+#      summary: Get all items
+#      operationId: create
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              $ref: '#/components/schemas/Item'
+#        required: true
+#      responses:
+#        '201':
+#          description: The item was created and returned
+#          headers:
+#            Location:
+#              description: The URL of the created item.
+#              style: simple
+#              schema:
+#                type: string
+#          content:
+#            application/json:
+#              schema:
+#                $ref: '#/components/schemas/Item'
+#        '422':
+#          description: The given entity was invalid
+#
+#components:
+#  responses:
+#    NotFound:
+#      description: The specified resource was not found
+#      content

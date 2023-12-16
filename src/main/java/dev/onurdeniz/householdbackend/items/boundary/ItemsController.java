@@ -1,6 +1,6 @@
-package dev.onurdeniz.householdbackend.boundary;
+package dev.onurdeniz.householdbackend.items.boundary;
 
-import dev.onurdeniz.householdbackend.control.ItemsService;
+import dev.onurdeniz.householdbackend.items.control.ItemsService;
 import dev.onurdeniz.householdbackend.items.entity.ItemsRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -64,7 +64,7 @@ public class ItemsController {
         return  service.update(mapper.map(itemDto, id))
                 .map(mapper::map)
 //                .map(item -> mapper.map(item))
-                .map(body -> ResponseEntity.ok(body))
+                .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
