@@ -22,7 +22,6 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RequiredArgsConstructor
 public class ItemsController {
     private static final String DEFAULT_MEDIA_TYPE = MediaType.APPLICATION_JSON_VALUE;
-
     private final ItemsService service;
     private final ItemDtoMapper mapper;
     private final ItemsRepository itemsRepository;

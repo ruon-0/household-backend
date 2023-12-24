@@ -10,7 +10,7 @@ tags:
   - name: items
     description: All operations to handle grocery items
 paths:
-  /api/v1/items:
+  /items:
     get:
       summary: "GET api/v1/items"
       operationId: "findAll"
@@ -39,7 +39,7 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ResponseEntity"
-  /api/v1/items/{id}:
+  /items/{id}:
     get:
       summary: "GET api/v1/items/{id}"
       operationId: "findById"
