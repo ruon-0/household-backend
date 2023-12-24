@@ -26,7 +26,7 @@ public class ItemEntityMapper {
         } else {
             Item newItem = new Item();
             newItem.setId(item.getId());
-            newItem.setItemName(newItem.getItemName());
+            newItem.setItemName(item.getItemName());
             newItem.setVendor(item.getVendor());
             newItem.setPrice(item.getPrice());
             newItem.setDateOfPurchase(item.getDateOfPurchase());

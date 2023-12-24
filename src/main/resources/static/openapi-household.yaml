@@ -1,46 +1,128 @@
-#openapi: 3.0.3
-#info:
-#  title: Household
-#  description: Managing household including groceries and finances
-#  version: 1.0.0
-#servers:
-#  - url: 'http://localhost:8080/api/v1'
-#    description: Generated server url
-#tags:
-#  - name: items
-#    description: All operations to handle grocery items
-#
-#paths:
-#  /items:
-#    get:
-#      tags:
-#        - items
-#      summary: Get all items
-#      operationId: create
-#      requestBody:
-#        content:
-#          application/json:
-#            schema:
-#              $ref: '#/components/schemas/Item'
-#        required: true
-#      responses:
-#        '201':
-#          description: The item was created and returned
-#          headers:
-#            Location:
-#              description: The URL of the created item.
-#              style: simple
-#              schema:
-#                type: string
-#          content:
-#            application/json:
-#              schema:
-#                $ref: '#/components/schemas/Item'
-#        '422':
-#          description: The given entity was invalid
-#
-#components:
-#  responses:
-#    NotFound:
-#      description: The specified resource was not found
-#      content
+openapi: "3.0.3"
+info:
+  title: "household_backend API"
+  description: "household_backend API"
+  version: "1.0.0"
+servers:
+  - url: 'http://localhost:8080/api/v1'
+    description: Generated server url
+tags:
+  - name: items
+    description: All operations to handle grocery items
+paths:
+  /api/v1/items:
+    get:
+      summary: "GET api/v1/items"
+      operationId: "findAll"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/ItemDto"
+    post:
+      summary: "POST api/v1/items"
+      operationId: "create"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ItemDto"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /api/v1/items/{id}:
+    get:
+      summary: "GET api/v1/items/{id}"
+      operationId: "findById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ItemDto"
+    put:
+      summary: "PUT api/v1/items/{id}"
+      operationId: "update"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ItemDto"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+    delete:
+      summary: "DELETE api/v1/items/{id}"
+      operationId: "delete"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+components:
+  schemas:
+    ItemDto:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        itemName:
+          type: "string"
+        vendor:
+          type: "string"
+        price:
+          type: "number"
+          format: "double"
+        dateOfPurchase:
+          type: "string"
+          format: "date"
+        discount:
+          type: "number"
+          format: "double"
+    HttpHeaders:
+      type: "object"
+      properties: { }
+    ResponseEntity:
+      type: "object"
+      properties:
+        headers:
+          $ref: "#/components/schemas/HttpHeaders"

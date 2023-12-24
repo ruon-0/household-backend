@@ -3,9 +3,13 @@ package dev.onurdeniz.householdbackend.items.control;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Getter
+@Setter
 @Data
 public class Item {
     private Long id;
